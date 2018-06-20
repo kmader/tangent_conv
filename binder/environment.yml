@@ -1,0 +1,11 @@
+name: tangent_conv
+channels:
+  - menpo
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.6
+  - numpy
+  - matplotlib
+  - pandas
+  - tensorflow>=1.3.0
