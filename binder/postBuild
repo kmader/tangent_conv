@@ -1,0 +1,21 @@
+git clone https://github.com/tatarchm/Open3D.git
+cd Open3D
+mkdir build
+cd build
+cmake ../src
+make
+cd ..
+cd ..
+
+# fixing paths
+echo "import sys" > util/path_config.py
+echo "open3d_path = './Open3D/build/lib/'" >> util/path_config.py
+echo "tc_path = '.'" >> util/path_config.py
+
+echo "sys.path.append(open3d_path)" >> util/path_config.py
+echo "from py3d import *" >> util/path_config.py
+echo "def get_tc_path():" >> util/path_config.py
+echo "	return tc_path" >> util/path_config.py
+cat util/path_config.py
+# download data
+#python get_data.py <directory_where_zip_is> <desired_output_directory> stanford
