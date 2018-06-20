@@ -1,3 +1,4 @@
 cmake
 xorg-dev
 libglu1-mesa-dev
+7z
