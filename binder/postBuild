@@ -18,4 +18,4 @@ echo "def get_tc_path():" >> util/path_config.py
 echo "	return tc_path" >> util/path_config.py
 cat util/path_config.py
 # download data
-#python get_data.py <directory_where_zip_is> <desired_output_directory> stanford
+python get_data.py . semantic_data semantic3d
