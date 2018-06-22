@@ -17,5 +17,5 @@ echo "from py3d import *" >> util/path_config.py
 echo "def get_tc_path():" >> util/path_config.py
 echo "	return tc_path" >> util/path_config.py
 cat util/path_config.py
-# download data (too big for now)
-# python get_data.py . semantic_data semantic3d
+# download data (just one dataset)
+python get_data.py . semantic_data simplesemantic3d
