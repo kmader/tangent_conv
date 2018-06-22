@@ -135,7 +135,7 @@ def get_scannet():
 		write_point_cloud(os.path.join(out_dir_name, "scan.pcd"), pcd)
 	print("Done.")
 
-def get_semantic3d():
+def get_semantic3d(just_one=False):
 	base_url = "http://www.semantic3d.net/data/point-clouds/training1/"
 	dl_files = {"bildstein_station1" : "bildstein_station1_xyz_intensity_rgb",
 				"bildstein_station3": "bildstein_station3_xyz_intensity_rgb",
@@ -152,6 +152,9 @@ def get_semantic3d():
 				"sg28_station4" : "sg28_station4_intensity_rgb",
 				"untermaederbrunnen_station1" : "untermaederbrunnen_station1_xyz_intensity_rgb",
 				"untermaederbrunnen_station3" : "untermaederbrunnen_station3_xyz_intensity_rgb"}
+
+	if just_one:
+		dl_files = {k: v for (k,v), _ in zip(dl_files.items(), range(1))}
 
 	labels_url = "http://www.semantic3d.net/data/sem8_labels_training.7z"
 	print("Downloading...")
@@ -223,5 +226,7 @@ elif args.dataset == "scannet":
 	get_scannet()
 elif args.dataset == "semantic3d":
 	get_semantic3d()
+elif args.dataset == "simplesemantic3d":
+	get_semantic3d(just_one = True)
 else:
 	print("Wrong dataset type")
